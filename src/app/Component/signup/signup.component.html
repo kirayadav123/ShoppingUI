@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class ="text-center">
+                    <h1>Sign Up</h1>
+                    <h6>Register Yourself!!</h6>
+                </div>
+                <form #registerform="ngForm" (ngSubmit)="gotologin()">
+                    <form>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Full Name</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel required name="FullName" #FullName="ngModel">
+                          <span  *ngIf="FullName.touched && FullName.invalid" style="color:red;">name must be contain only character</span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
+                          <input type="number" class="form-control" id="exampleInputPassword1" ngModel required name="MobileNumber"minlength="10" #MobileNumber="ngModel">
+                          <span *ngIf="MobileNumber.touched && MobileNumber.invalid" style="color:red;">Mobile number shoud be 10 digit</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputemail1" class="form-label">Email Adress</label>
+                            <input type="email" class="form-control" id="exampleInputPassword1" ngModel required name="email" #email="ngModel">
+                            <span *ngIf="email.touched && email.invalid"style="color:red;">email required</span>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" ngModel required name="password" #password="ngModel">
+                            <span *ngIf="password.touched && password.invalid" style="color: red;">password must be 8 character</span>
+                          </div>
+                         
+                        <button [disabled]="registerform.invalid" type="submit" class="btn btn-primary">Signup</button>
+                      </form>
+                      <a style="color:#fff; margin-top: 10px;" routerLink="/login" >Already registered? click to Login!!</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
